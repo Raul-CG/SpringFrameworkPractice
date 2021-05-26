@@ -1,35 +1,23 @@
 package raul.spring.course.FirstWebApp.domain;
 
-import java.util.HashSet;
-import java.util.Set;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 
 @Entity
-public class Author {
+public class Publisher {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long		id;
+	private Long	id;
+	private String	name;
+	private String	address;
 
-	private String		firstName;
-	private String		lastName;
-
-	@ManyToMany(mappedBy = "authors")
-	private Set<Book>	books	= new HashSet<>();
-
-	public Author() {
-
-	}
-
-	public Author(String firstName, String lastName) {
+	public Publisher(String name, String address) {
 		super();
-		this.firstName = firstName;
-		this.lastName = lastName;
+		this.name = name;
+		this.address = address;
 	}
 
 	public Long getId() {
@@ -40,33 +28,25 @@ public class Author {
 		this.id = id;
 	}
 
-	public String getFirstName() {
-		return this.firstName;
+	public String getName() {
+		return this.name;
 	}
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public String getLastName() {
-		return this.lastName;
+	public String getAddress() {
+		return this.address;
 	}
 
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-
-	public Set<Book> getBooks() {
-		return this.books;
-	}
-
-	public void setBooks(Set<Book> books) {
-		this.books = books;
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
 	@Override
 	public String toString() {
-		return "Author [id=" + this.id + ", firstName=" + this.firstName + ", lastName=" + this.lastName + ", books=" + this.books + "]";
+		return "Publisher [id=" + this.id + ", name=" + this.name + ", address=" + this.address + "]";
 	}
 
 	@Override
@@ -88,7 +68,7 @@ public class Author {
 		if (this.getClass() != obj.getClass()) {
 			return false;
 		}
-		Author other = (Author) obj;
+		Publisher other = (Publisher) obj;
 		if (this.id == null) {
 			if (other.id != null) {
 				return false;
