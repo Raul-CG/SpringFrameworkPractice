@@ -17,7 +17,7 @@ public class Book {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long		Id;
+	private Long		id;
 
 	private String		title;
 	private String		isbn;
@@ -32,6 +32,14 @@ public class Book {
 
 	public Book() {
 
+	}
+
+	public Long getId() {
+		return this.id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public Book(String title, String isbn) {
@@ -74,14 +82,14 @@ public class Book {
 
 	@Override
 	public String toString() {
-		return "Book [Id=" + this.Id + ", title=" + this.title + ", isbn=" + this.isbn + ", authors=" + this.authors + "]";
+		return "Book [Id=" + this.id + ", title=" + this.title + ", isbn=" + this.isbn + "]";
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = (prime * result) + ((this.Id == null) ? 0 : this.Id.hashCode());
+		result = (prime * result) + ((this.id == null) ? 0 : this.id.hashCode());
 		return result;
 	}
 
@@ -97,11 +105,11 @@ public class Book {
 			return false;
 		}
 		Book other = (Book) obj;
-		if (this.Id == null) {
-			if (other.Id != null) {
+		if (this.id == null) {
+			if (other.id != null) {
 				return false;
 			}
-		} else if (!this.Id.equals(other.Id)) {
+		} else if (!this.id.equals(other.id)) {
 			return false;
 		}
 		return true;
