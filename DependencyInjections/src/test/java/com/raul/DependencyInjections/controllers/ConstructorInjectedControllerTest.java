@@ -3,7 +3,7 @@ package com.raul.DependencyInjections.controllers;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import com.raul.DependencyInjections.services.GreetingServiceImpl;
+import com.raul.DependencyInjections.services.ConstructorGreetingService;
 
 class ConstructorInjectedControllerTest {
 
@@ -11,7 +11,7 @@ class ConstructorInjectedControllerTest {
 
 	@BeforeEach
 	void setUp() {
-		this.controller = new ConstructorInjectedController(new GreetingServiceImpl());
+		this.controller = new ConstructorInjectedController(new ConstructorGreetingService());
 	}
 
 	@Test
